@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D158ABF-401E-4807-BA3B-C8937B29D755}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CompShopProject</RootNamespace>
+    <AssemblyName>CompShopProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="HashGenerators\MD5Generator.cs" />
+    <Compile Include="Util\NinjectRegistrations.cs" />
+    <Compile Include="Util\ReposModule.cs" />
+    <Compile Include="ViewModel\AccountViewModel.cs" />
+    <Compile Include="ViewModel\AddProductViewModel.cs" />
+    <Compile Include="ViewModel\CartProductViewModel.cs" />
+    <Compile Include="ViewModel\CartViewModel.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OrderDetailsViewModel.cs" />
+    <Compile Include="ViewModel\OrdersViewModel.cs" />
+    <Compile Include="ViewModel\ProducerViewModel.cs" />
+    <Compile Include="ViewModel\ProductDetailsViewModel.cs" />
+    <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\ProfileViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="ViewModel\UsersViewModel.cs" />
+    <Compile Include="View\AddProductView.xaml.cs">
+      <DependentUpon>AddProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AuthorizationView.xaml.cs">
+      <DependentUpon>AuthorizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CartProductView.xaml.cs">
+      <DependentUpon>CartProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CartView.xaml.cs">
+      <DependentUpon>CartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderDetailsView.xaml.cs">
+      <DependentUpon>OrderDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProducerView.xaml.cs">
+      <DependentUpon>ProducerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductDetailsView.xaml.cs">
+      <DependentUpon>ProductDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegistrationView.xaml.cs">
+      <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UsersView.xaml.cs">
+      <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Components\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\BindablePasswordBox.xaml.cs">
+      <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Page Include="Theme\CustomButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\CustomComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TextBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AuthorizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CartProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OrderDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProducerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\Poppins-Regular.ttf" />
+    <Resource Include="Fonts\Roboto-Regular.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\defUser.png" />
+    <Resource Include="Images\icon.png" />
+    <Resource Include="Images\Icons\arrow-back.png" />
+    <Resource Include="Images\Icons\arrow-forward.png" />
+    <Resource Include="Images\Icons\close-icon.png" />
+    <Resource Include="Images\Icons\defaultProductImage.png" />
+    <Resource Include="Images\Icons\details.ico" />
+    <Resource Include="Images\Icons\favicon.ico" />
+    <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\icon-48.png" />
+    <Resource Include="Images\Icons\icon.ico" />
+    <Resource Include="Images\new_product.png" />
+    <Resource Include="Images\StarRates\Star_rating_0.5_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_0_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_1.5_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_1_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_2.5_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_2_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_3.5_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_3_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_4.5_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_4_of_5.png" />
+    <Resource Include="Images\StarRates\Star_rating_5_of_5.png" />
+    <Resource Include="Images\supplier.png" />
+    <Resource Include="Images\users_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{07627adb-1a02-42e8-a603-33516a1f0b6e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{35d5c292-eaec-40ec-9fe0-a6364d0a1262}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{A1B75CA4-840A-4D35-8586-74C8F4261EFA}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{3c8f0022-3b24-475e-b25f-6a7c4d743e46}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

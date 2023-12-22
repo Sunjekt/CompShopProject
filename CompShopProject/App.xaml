@@ -1,0 +1,51 @@
+﻿<Application x:Class="CompShopProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CompShopProject"
+             xmlns:viewModel="clr-namespace:CompShopProject.ViewModel"
+             xmlns:view="clr-namespace:CompShopProject.View">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/CustomButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/CustomComboBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
+                <view:ProductsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CartViewModel}">
+                <view:CartView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:OrdersViewModel}">
+                <view:OrdersView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AddProductViewModel}">
+                <view:AddProductView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CategoryViewModel}">
+                <view:CategoryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ProducerViewModel}">
+                <view:ProducerView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ProfileViewModel}">
+                <view:ProfileView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:UsersViewModel}">
+                <view:UsersView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

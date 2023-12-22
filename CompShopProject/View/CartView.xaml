@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="CompShopProject.View.CartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CompShopProject.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="705" d:DesignWidth="955"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <TextBlock Text="Корзина покупок"
+                       Foreground="White"
+                       FontSize="30"
+                       HorizontalAlignment="Left"
+                       Margin="5 10"/>
+        </WrapPanel>
+        <ScrollViewer Background="#423e5d" Margin="2" Grid.Row="1">
+            <ListView x:Name="ListViewProducts" ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Background="Transparent" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border HorizontalAlignment="Center"
+                                CornerRadius="10"
+                                BorderThickness="1" BorderBrush="DarkOrange"
+                                Width="300"
+                                Height="350"
+                                Padding="5"
+                                Background="#22202f">
+                            <StackPanel Orientation="Vertical">
+                                <DockPanel Height="200">
+                                    <Border Height="190" Width="190"
+                                                Padding="3 0 3 0"
+                                                CornerRadius="10"
+                                                BorderThickness="1.6" BorderBrush="Gray">
+                                        <Border.Background>
+                                            <ImageBrush Stretch="Fill" ImageSource="{Binding Product.ImageBytes, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DockPanel>
+                                <StackPanel VerticalAlignment="Center" Margin="0 9">
+                                    <TextBlock FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center" Foreground="White" Text="{Binding Product.Name, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding Product.Description, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DockPanel>
+                                        <TextBlock FontSize="15" DockPanel.Dock="Left" Margin="3 0 0 0" TextAlignment="Left" Width="90" Foreground="White" Text="{Binding Subtotal, UpdateSourceTrigger=PropertyChanged,StringFormat=\{0\}₽}" />
+                                        <TextBlock FontSize="15" DockPanel.Dock="Right" Margin="0 0 3 0" TextAlignment="Right" Width="90" Foreground="White" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, StringFormat=Кол-во: \{0\}}" />
+                                        <Image Source="{Binding Product.CurrentRateSource, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="93"/>
+                                    </DockPanel>
+                                    <TextBlock HorizontalAlignment="Center" Foreground="Aqua" Text="{Binding Product.CreationDate,StringFormat=d, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock TextAlignment="Center" Width="142" Foreground="AliceBlue" Text="{Binding Product.Producer.Name, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </ScrollViewer>
+        <StackPanel Background="Transparent" Margin="2" Grid.Row="2" Height="60" HorizontalAlignment="Right" Orientation="Horizontal">
+            <TextBlock FontSize="24" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding CartQuantity, UpdateSourceTrigger=PropertyChanged, StringFormat=Количество: \{0\}}" />
+            <TextBlock FontSize="24" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding CartTotal, UpdateSourceTrigger=PropertyChanged, StringFormat=Цена: \{0\}}" />
+            <Button x:Name="buyProductButton" Style="{StaticResource CustomButtonTemplate}" Margin="10" Width="250" Height="40" Content="Заказать"
+                    Command="{Binding CreateOrder}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
